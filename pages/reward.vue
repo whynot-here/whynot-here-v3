@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- <NuxtLayout> -->
-      <NuxtPage />
-    <!-- </NuxtLayout> -->
+    혜택
   </div>
 </template>
 

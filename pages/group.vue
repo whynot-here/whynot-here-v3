@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- <NuxtLayout> -->
-      <NuxtPage />
-    <!-- </NuxtLayout> -->
+    모임
   </div>
 </template>
 

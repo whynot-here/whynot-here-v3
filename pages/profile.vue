@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- <NuxtLayout> -->
-      <NuxtPage />
-    <!-- </NuxtLayout> -->
+    내정보
   </div>
 </template>
 
