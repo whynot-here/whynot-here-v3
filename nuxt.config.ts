@@ -5,6 +5,15 @@ export default defineNuxtConfig({
     host: "0.0.0.0",
     port: 3001,
   },
+  runtimeConfig: {
+    public: {
+      frontUrl:
+        process.env.NODE_ENV === 'production'
+          ? 'https://dev-why-not-here.o-r.kr'
+          : 'http://localhost:3001',
+          apiUrl: 'https://whynot-here.o-r.kr'
+    }
+  },
   app: {
     head: {
       title: "WHY NOT HERE",
@@ -27,5 +36,11 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ["~/assets/css/common.css"]
+  css: ["~/assets/css/common.css"],
+  modules: ["@pinia/nuxt"],
+  pinia: {
+    autoImports: [
+      "defineStore",
+    ]
+  }
 })
