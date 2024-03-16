@@ -33,9 +33,12 @@ export default defineNuxtRouteMiddleware((to, from) => {
     setUserInfo(info)
   }
 
-  console.log(to?.name)
+  // console.log(to?.name)
+  const excludePage = [
+    'index'
+  ]
   // login 안 되어 있을 때
-  if (!token.value) {
+  if (!token.value && !excludePage.some((value: string) => {return value === to.name})) {
     abortNavigation();
     return navigateTo(`${useRuntimeConfig().public.frontUrl}/login`, { external: true });
   }
