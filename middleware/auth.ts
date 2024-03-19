@@ -32,6 +32,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
   // login 안 되어 있을 때
   if (!token.value && !excludePage.some((value: string) => {return value === to.name})) {
     abortNavigation();
-    return navigateTo(`${useRuntimeConfig().public.frontUrl}/login`, { external: true });
+    return navigateTo({path: '/login'}, { external: true });
   }
 })
