@@ -8,9 +8,7 @@ export const mainCommon = () => {
   })
 
   function goHome() {
-    if (process.browser) {
-      window.location.href = useRuntimeConfig().public.frontUrl;
-    }
+    navigateTo({path: '/'}, { external: false })
   }
 
   function setCookie(name: String, value: any, exhour: number) {
