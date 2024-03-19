@@ -4,7 +4,8 @@
     <div v-if="userInfo">
       user 정보 <br>
       {{ userInfo }}
-    </div>
+    </div><br/><br/>
+    <a @click="login">login</a> <br/><br/>
     <a @click="logout">logout</a>
   </div>
 </template>
@@ -15,7 +16,9 @@ const { userInfo } = storeToRefs(useAuthStore());
 const { logUserOut } = useAuthStore();
 const router = useRouter();
 
-
+function login() {
+  router.push("/login");
+}
 function logout () {
   logUserOut();
   router.push("/login");

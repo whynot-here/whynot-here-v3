@@ -6,7 +6,7 @@ export const useFetchCommon = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: token.value === undefined ? '' : `Bearer ${token.value}`,
+        Authorization: token.value === undefined ? '' : token.value,
       },
     };
 
@@ -24,7 +24,7 @@ export const useFetchCommon = () => {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
-        Authorization: token.value === undefined ? '' : `Bearer ${token.value}`,
+        Authorization: token.value === undefined ? '' : token.value,
       },
       body: JSON.stringify(body),
     };
@@ -46,7 +46,7 @@ export const useFetchCommon = () => {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token.value}`,
+        Authorization: token.value,
       },
       body: JSON.stringify(body),
     };
@@ -68,7 +68,7 @@ export const useFetchCommon = () => {
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token.value}`,
+        Authorization: token.value,
       },
       body: JSON.stringify(body),
     };
@@ -89,7 +89,7 @@ export const useFetchCommon = () => {
       method: "POST",
       withCredentials: true,
       headers: {
-        Authorization: `Bearer ${token.value}`,
+        Authorization: token.value,
       },
       body: formData,
     };

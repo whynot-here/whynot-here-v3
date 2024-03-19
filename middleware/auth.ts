@@ -1,36 +1,28 @@
 import { storeToRefs } from "pinia";
 import { useAuthStore } from "~/store/auth";
 import jwtDecode from "jwt-decode";
+import { useUserFecth } from "~/fetch/useUserFetch";
 
 const { setUserInfo } = useAuthStore();
 const { authenticated } = storeToRefs(useAuthStore());
 
 export default defineNuxtRouteMiddleware((to, from) => {
+  const { getUserInfo } = useUserFecth();
   const token = useCookie("token");
   let info: any;
 
   if (token.value) {
     authenticated.value = true;
     
-    info = jwtDecode(token.value);
-    const userInfo: { [key: string]: any } = {
-      authType: '',
-      authenticated: false,
-      email: '',
-      id: -1,
-      nickname: '',
-      profileImg: null,
-      roles: [],
-      studentType: null,
-    }
-
-    Object.keys(userInfo).forEach((key) => {
-      if (info[key]) {
-        userInfo[key] = info[key];
-      }
+    // jwtDecode(token.value);
+    
+    // userInfo end point
+    getUserInfo().then((result: any) => {
+      info = result;
+      setUserInfo(info)
+    }).catch((error: any) => {
+      console.log(error)
     });
-
-    setUserInfo(info)
   }
 
   // console.log(to?.name)

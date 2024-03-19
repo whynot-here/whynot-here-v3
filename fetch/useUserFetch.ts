@@ -14,7 +14,14 @@ export const useUserFecth = () => {
     })
   }
 
+  async function getUserInfo() {
+    return await fetch_get({
+      url: `${apiUrl}/v2/account/info`
+    })
+  }
+
   return {
-    formLogin
+    formLogin,
+    getUserInfo
   }
 }
